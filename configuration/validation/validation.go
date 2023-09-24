@@ -3,6 +3,7 @@ package validation
 import (
 	"encoding/json"
 	"errors"
+	"strings"
 
 	"github.com/alpsantos/futwatcher-processor/configuration/rest_err"
 	"github.com/gin-gonic/gin/binding"
@@ -50,6 +51,10 @@ func ValidateUserError(
 
 		return rest_err.NewBadRequestValidationError("Some fields are invalid", errorsCauses)
 	} else {
+		if strings.Contains(validation_err.Error(), "not found") {
+			return rest_err.NewNotFoundError("Not found")
+		}
+
 		return rest_err.NewBadRequestError("Error trying to convert fields")
 	}
 }

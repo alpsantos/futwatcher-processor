@@ -1,9 +1,5 @@
 package domain
 
-type CardRequest struct {
-	PlayerId int
-}
-
 type Player struct {
 	Id      string
 	Urlname string
