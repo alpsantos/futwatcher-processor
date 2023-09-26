@@ -36,3 +36,20 @@ func (p *ProcessorServiceImpl) GetPlayerData(playerId int) (response domain.Play
 
 	return player, nil
 }
+
+func (p *ProcessorServiceImpl) GetPlayerHistory(playerId int) (response domain.PlayerHistory, err error) {
+
+	request := fw_api.PlayerRequest{
+		Id: playerId,
+	}
+
+	res, err := p.dataClient.GetPlayerHistory(request)
+	if err != nil {
+		return
+	}
+
+	history := domain.PlayerHistory{}
+	copier.Copy(&history, &res)
+
+	return history, nil
+}

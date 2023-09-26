@@ -32,6 +32,7 @@ func (pc *PlayerController) GetPlayer(c *gin.Context) {
 	}
 
 	res, err := pc.processorService.GetPlayerData(request.Id)
+	
 	if err != nil {
 		errRest := validation.ValidateUserError(err)
 		c.JSON(errRest.Code, errRest)

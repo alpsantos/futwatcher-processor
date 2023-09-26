@@ -8,11 +8,6 @@ type Player struct {
 }
 
 type PlayerHistory struct {
-	Player  Player    `json:"player"`
-	History []History `json:"history"`
-}
-
-type History struct {
-	Timestamp string `json:"timestamp"`
-	Price     int    `json:"price"`
+	Player  Player            `json:"player"`
+	History map[int64]float64 `json:"history"`
 }

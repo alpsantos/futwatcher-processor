@@ -10,3 +10,8 @@ type PlayerResponse struct {
 	Price   string
 	Ud      string
 }
+
+type PlayerHistoryResponse struct {
+	Console map[int64]float64
+	PC      map[int64]float64
+}
