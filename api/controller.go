@@ -20,7 +20,7 @@ func NewController(processor processor.ProcessorService) *PlayerController {
 	}
 }
 
-func (pc *PlayerController) GetCard(c *gin.Context) {
+func (pc *PlayerController) GetPlayer(c *gin.Context) {
 	logger.Info("Init GetCard controller method called")
 	//https://www.futwiz.com/en/app/sold23/21767/console
 	request := PlayerRequest{}

@@ -9,5 +9,5 @@ func InitRoutes(r *gin.Engine) {
 	processor := processor.NewProcessorService()
 	cardController := NewController(processor)
 
-	r.GET("/card", cardController.GetCard)
+	r.GET("/card", cardController.GetPlayer)
 }
